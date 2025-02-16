@@ -13,8 +13,8 @@
 # - sklearn (for dataset loading)
 
 
-from logistic_regression import LogisticRegression
-from utils import train_test_split
+from src.logistic_regression import LogisticRegression
+from src.utils import train_test_split
 from sklearn.datasets import load_breast_cancer
 
 breast_cancer = load_breast_cancer()
