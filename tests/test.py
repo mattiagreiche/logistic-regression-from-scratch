@@ -12,9 +12,15 @@
 # - utils (custom train_test_split function)
 # - sklearn (for dataset loading)
 
+import sys
+import os
 
-from src.logistic_regression import LogisticRegression
-from src.utils import train_test_split
+# Add the src directory to the Python search path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+
+from logistic_regression import LogisticRegression
+from utils import train_test_split
+
 from sklearn.datasets import load_breast_cancer
 
 breast_cancer = load_breast_cancer()
