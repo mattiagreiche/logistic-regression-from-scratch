@@ -72,17 +72,17 @@ class LogisticRegression():
         self.iterations_before_stop: int = 0 # Track the number of iterations before early stopping
         self.early_stopped: bool = False # Track if the model was early stopped
     
-    def fit(self, X: ArrayLike, y: ArrayLike, learning_rate: float = 1e-6, num_iterations: int = 100_000, tolerance: float = 1e-6, patience: int = 20) -> None:
+    def fit(self, X: ArrayLike, y: ArrayLike, learning_rate: float = 1e-5, num_iterations: int = 200_000, tolerance: float = 1e-7, patience: int = 50) -> None:
         """
         Fit the model to the training data using batch gradient descent and early stopping.
 
         Parameters:
         - X (ArrayLike): Training samples.
         - y (ArrayLike): Target values.
-        - learning_rate (float): Learning rate for gradient descent. Default is 1e-6.
-        - num_iterations (int): Maximum number of iterations. Default is 100,000.
-        - tolerance (float): Tolerance for early stopping. Default is 1e-6.
-        - patience (int): Number of iterations to wait for improvement before early stopping. Default is 20.
+        - learning_rate (float): Learning rate for gradient descent. Default is 1e-5.
+        - num_iterations (int): Maximum number of iterations. Default is 200,000.
+        - tolerance (float): Tolerance for early stopping. Decrease value for looser tolerance. Default is 1e-7.
+        - patience (int): Number of iterations to wait for improvement before early stopping. Default is 50.
         """
         self.learning_rate = learning_rate
         
@@ -103,7 +103,7 @@ class LogisticRegression():
             y_validate_pred = self.predict(X_validate)
             validate_loss = self.loss(y_validate, y_validate_pred)
             
-            if abs(previous_validate_loss - validate_loss) < tolerance:
+            if abs(previous_validate_loss - validate_loss) / (previous_validate_loss + 1e-8) < tolerance: # Relative change plus small value to avoid division by zero
                 patience_counter += 1
             else:
                 patience_counter = 0
