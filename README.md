@@ -2,11 +2,16 @@
 
 This project implements a batch logistic regression model from scratch using only NumPy. The model is trained and tested on the breast cancer dataset from Scikit-learn.
 
-## Files
+## Folder Structure
 
-- `logistic_regression.py`: Contains the implementation of the `LogisticRegression` class,  which includes methods for model training, prediction, loss calculation, and evaluation using batch gradient descent.
-- `utils.py`: Provides the `train_test_split` function for splitting datasets into training and testing sets.
-- `test.py`: Tests the model on Scikit-learn's breast cancer dataset and outputs the accuracy.
+```
+.
+├── src/
+│   ├── logistic_regression.py  # Contains the LogisticRegression class for model implementation
+│   └── utils.py               # Provides the train_test_split function
+└── tests/
+    └── test.py                # Tests the model on Scikit-learn's breast cancer dataset
+```
 
 ## Features
 
@@ -27,10 +32,16 @@ To use the logistic regression model, follow these steps:
 4. Load your dataset.
 5. Split the dataset into training and testing sets using the `train_test_split` function.
 6. Create an instance of the `LogisticRegression` class.
-7. Train the model using the `fit` method with your training data.
+7. Train the model using the `fit` method with your training data. Feel free to modify the hyperparameters.
 8. Evaluate the model using the `score` method with your testing data.
 
 ## Results
 
-The model achieves an accuracy of around 92% on Scikit-learn's breast cancer dataset. Accuracy may vary slightly depending on the random seed used for initialization and data splitting.
+The model achieves an accuracy of around 94% on Scikit-learn's breast cancer dataset. Accuracy may vary slightly depending on the random seed used for initialization and data splitting.
 
+## Roadmap
+
+* [x] Implement early stopping to prevent overfitting and speed up convergence.
+* [x] Test on a variety of data sets to manually fine-tune default hyperparameters.
+* [ ] Implement momentum in the gradient descent algorithm to speed up convergence.
+* [ ] Implement L2 or L1 regularization to prevent overfitting.
