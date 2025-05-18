@@ -1,6 +1,6 @@
 # Logistic Regression From Scratch
 
-This project implements a batch logistic regression model from scratch using only NumPy. The model is trained and tested on the breast cancer dataset from Scikit-learn.
+This project implements a batch logistic regression model from scratch using only NumPy.
 
 ## Folder Structure
 
@@ -37,7 +37,7 @@ To use the logistic regression model, follow these steps:
 
 ## Results
 
-The model achieves an accuracy of around 94% on Scikit-learn's breast cancer dataset. Accuracy may vary slightly depending on the random seed used for initialization and data splitting.
+The model achieves an accuracy of ~94% on Scikit-learn's breast cancer dataset. Accuracy may vary slightly depending on the random seed used for initialization and data splitting.
 
 ## Roadmap
 
